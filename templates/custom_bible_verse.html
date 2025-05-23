@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SoulScript</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom_bible_verse.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Get Your Bible Verse</h1>
+        <form method="POST">
+            <input type="text" name="question" placeholder="What is your desired verse?" required>
+            <br>
+            <button type="submit">Get Verse</button>
+        </form>
+
+        {% if bible_verse %}
+            <h2>Your Verse</h2>
+            <p>{{ bible_verse }}</p>
+        {% endif %}
+    </div>
+    <button class = "nav-toggle">
+        <div class="nav">
+            <div class = "bar1"></div>
+            <div class = "bar2"></div>
+            <div class = "bar3"></div>
+        </div>
+    </button>
+
+    <div class="sidebar">
+    <ul>
+        <li><a href="/daily_verse">Your Daily Verse</a></li>
+        <li><a href="custom_bible_verse">Your Bible Verse</a></li>
+        <li><a href="custom_gita_verse">Your Gita Verse</a></li>
+        <li><a href="ai_guru">AI Guru</a></li>
+        <li><a href="login">Logout</a></li>
+    </ul>
+    </div>
+
+    <script>
+        document.querySelector('.nav-toggle').onclick = function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+        };
+    </script>
+</body>
+</html>

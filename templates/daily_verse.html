@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>SoulScript</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename ='daily_verse.css')}}">
+</head>
+<body>
+    <div class = "page-wrapper">
+        <div class = "verse-container">
+            <h1> Your Daily Verse </h1>
+            <div class = "verse-card">
+                <h2> Daily Gita Verse</h2>
+                <p style = "white-space: pre-line;">{{gita_verse}}</p>
+            </div>
+            <div class = "verse-card">
+                <h2>Daily Bible Verse </h2>
+                <p style = "white-space: pre-line;">{{bible_verse}}</p>
+            </div>
+        </div>
+    </div>
+    <button class = "nav-toggle">
+        <div class="nav">
+            <div class = "bar1"></div>
+            <div class = "bar2"></div>
+            <div class = "bar3"></div>
+        </div>
+    </button>
+
+    <div class="sidebar">
+    <ul>
+        <li><a href="/daily_verse">Your Daily Verse</a></li>
+        <li><a href="custom_bible_verse">Your Bible Verse</a></li>
+        <li><a href="custom_gita_verse">Your Gita Verse</a></li>
+        <li><a href="ai_guru">AI Guru</a></li>
+        <li><a href="login">Logout</a></li>
+    </ul>
+    </div>
+
+<script>
+    document.querySelector('.nav-toggle').onclick = function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+    };
+</script>
+
+
+</body>
+</html>

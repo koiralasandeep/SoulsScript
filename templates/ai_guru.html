@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SoulScript</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ai_guru.css') }}">
+</head>
+<body>
+    <div class="chat-wrapper">
+        <h1>Talk to SoulScript</h1>
+        <div class="chat-box" id="chat-box">
+            {% for message in conversation %}
+                <div class="message {{ message.role }}">
+                    <strong>{{ message.role|capitalize }}:</strong> {{ message.content }}
+                </div>
+            {% endfor %}
+        </div>
+        <form method="post" class="chat-form">
+            <input type="text" name="user_input" placeholder="Share your thoughts or worries..." required autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <button class = "nav-toggle">
+    <div class="nav">
+        <div class = "bar1"></div>
+        <div class = "bar2"></div>
+        <div class = "bar3"></div>
+    </div>
+    </button>
+
+    <div class="sidebar">
+    <ul>
+        <li><a href="/daily_verse">Your Daily Verse</a></li>
+        <li><a href="custom_bible_verse">Your Bible Verse</a></li>
+        <li><a href="custom_gita_verse">Your Gita Verse</a></li>
+        <li><a href="ai_guru">AI Guru</a></li>
+        <li><a href="login">Logout</a></li>
+    </ul>
+    </div>
+
+<script>
+    document.querySelector('.nav-toggle').onclick = function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+    };
+</script>
+</body>
+</html>
